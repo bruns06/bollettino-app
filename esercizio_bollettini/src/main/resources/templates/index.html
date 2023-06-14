@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="it">
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
 <head>
+
     <meta charset="utf-8">
     <title>TITOLO PRIMA PAGINA DA VEDERE NELLA BARRA DI SOPRA</title>
     <meta name="description" content="Homepage Pagamento Bollettini">
     <meta name="author" content="Bruna & Imbrea">
-    <link rel="stylesheet" href="Z:\Bollettino-App\bollettino-app\esercizio_bollettini\src\main\resources\css\style.css">
+    <link th:href="@{styles/style.css}" rel="stylesheet">
 </head>
 <body>
     <div class="top-nav">
@@ -15,7 +16,23 @@
     <div>
         <h1>TITOLO</h1>
     </div>
-
+	
+	  <div class="div-form">
+               <form id='myForm' method="post" action="/pagaBollettino">
+                    <label for="conto-corrente-dest">Conto corrente postale destinatario:</label>
+					<input type="text" id="conto-corrente-dest" name="conto-corrente-dest">
+					<label for="codice-bollettino">Codice bollettino:</label>
+					<input type="text" id="codice-bollettino" name="codice-bollettino">
+                    <label for="causale">Causale:</label>
+					<input type="text" id="causale" name="causale">
+                    <label for="importo">Importo:</label>
+					<input type="number" id="importo" name="importo">				
+					
+					<button type="submit" value="Submit">Crea pagamento</button>
+               </form>
+      </div>
+    
+	
     <div class="bottom-nav"></div>
     <!-- end of the body -->
     <script src="js/main.js"></script>

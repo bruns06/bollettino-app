@@ -2,7 +2,9 @@ package com.bollettini.presentation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.bollettini.entities.Bollettino;
 import com.bollettini.service.BollettinoService;
 import com.bollettini.service.UtenteService;
 
@@ -19,10 +21,15 @@ public class ControllerMVC {
 			return "index.html";
 		}
 	
-	 //@PostMapping("/testi")
-	 	//public String addTesto(Bollettino b) {
-		 //bs.pagaBollettino(b);
-		 //return "redirect:/review";
-	 //}
+	 @GetMapping("testi")
+		public String showBollettino() {
+			return "pagaBollettino.html";
+		}
+	 
+	 @PostMapping("/pagaBollettino")
+	 	public String pagaBollettino(Bollettino b) {
+		 bs.pagaBollettino(b);
+		 return "pagaBollettino.html";
+	 }
 	
 }
