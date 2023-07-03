@@ -8,16 +8,17 @@ import com.bollettini.service.UtenteService;
 
 public class ControllerMVC {
 	
-	 @Autowired
-	 UtenteService us;
-	 
-	 @Autowired
-	 BollettinoService bs;
 	
-	 @GetMapping({"/", "home", "index"})
-		public String home() {
-			return "index.html";
-		}
+	 
+	@GetMapping({"/", "home", "index"})
+	public String home() {
+		return "index.html";
+	}
+	
+	@GetMapping("/dati-bollettino")
+	public String datiBollettino() {
+		return "dati-bolletino";
+	}
 	
 	 //@PostMapping("/testi")
 	 	//public String addTesto(Bollettino b) {
