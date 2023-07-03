@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="it">
+<html  xmlns:th="http://www.thymeleaf.org"
+		lang="it">
 <head>
     <meta charset="utf-8">
-    <title>Completa Bollettino</title>
+    <title>Bollettino Postale</title>
     <meta name="description" content="Page Inserimento Dati Bollettino">
     <meta name="author" content="Bruna & Imbrea">
-    <link rel="stylesheet" href="Z:\Bollettino-App\bollettino-app\esercizio_bollettini\src\main\resources\css\style.css">
+    <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>
     <div id="header"></div>
 
     <div id="main">
+        <div>
+            <h1>Dati Bollettino Postale</h1>
+            <p>Compila con i seguenti dati il bollettino che vuoi pagare:</p>
+        </div>
         <form id="myForm" action="/pagamento-bollettino" method="post">
             <label for="conto-corrente">Conto Corrente</label>
             <input type="number" name="contoCorrente" id="conto-corrente">
@@ -20,15 +25,14 @@
             <input type="text" name="causaleVersamento" id="causale-versamento">
             <label for="importo">Importo</label>
             <input type="number" name="importo" id="importo">
-            <button type="submit">Change Page</button>
         </form>
-        
-        <button onclick="window.location.href='/home'">Return to Home Game</button>
+        <button onclick="window.location.href='/home'">Return to Home Page</button>
+        <button type="submit" form="myForm">Change Page</button>
     </div>
 
 
     <div id="footer"></div>
     <!-- end of the body -->
-    <script src="Z:\Bollettino-App\bollettino-app\esercizio_bollettini\src\main\resources\js\main.js"></script>
+    <script src="/esercizio_bollettini/src/main/resources/js/"></script>
 </body>
 </html>
