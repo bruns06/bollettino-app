@@ -1,11 +1,13 @@
 package com.bollettini.presentation;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.PostMapping;
-import com.bollettini.service.BollettinoService;
-import com.bollettini.service.UtenteService;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@Controller
+@RequestMapping("/")
 public class ControllerMVC {
 	
 	
@@ -17,8 +19,9 @@ public class ControllerMVC {
 	
 	@GetMapping("/dati-bollettino")
 	public String datiBollettino() {
-		return "dati-bolletino";
+		return "dati-bollettino";
 	}
+	
 	
 	 //@PostMapping("/testi")
 	 	//public String addTesto(Bollettino b) {
