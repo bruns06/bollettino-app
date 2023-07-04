@@ -17,4 +17,8 @@ public class BollettinoService {
 	public List<Bollettino> getBollettino(){
 		return dao.findAll();
 	}
+	
+	public void pagaBollettino(Bollettino b) {
+		dao.save(b);
+	}
 }
