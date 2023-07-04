@@ -23,7 +23,17 @@ public class Bollettino {
 	private String codiceContoDestinatario;
 	private String nomePagatore;
 	private String codiceCdcPagatore;
+	private String contoCorrente;
 	
+	public String getContoCorrente() {
+		return contoCorrente;
+	}
+	public void setContoCorrente(String contoCorrente) {
+		this.contoCorrente = contoCorrente;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getCodiceBollettino() {
 		return codiceBollettino;
 	}

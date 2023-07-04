@@ -14,7 +14,14 @@ public class ContoAbilitatoService {
 	@Autowired
 	private ContoAbilitatoDAO dao;
 	
+	public boolean existsContoCorrente(String codiceConto) {
+		ContoAbilitato contoAbilitato = dao.findByCodiceConto(codiceConto);
+		return contoAbilitato != null;
+	}
+	
 	public List<ContoAbilitato> getContoAbilitato(){
 		return dao.findAll();
 	}
+	
+	
 }
