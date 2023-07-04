@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org"
+		lang="it">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <title>Homepage Bollettino Postale</title>
+    <meta name="description" content="Homepage Pagamento Bollettini">
+    <meta name="author" content="Bruna & Imbrea">
+    <link th:href="@{/esercizio_bollettini/src/main/resources/static/style.css}" rel="sylesheet">
 </head>
 <body>
+    <div id="header">
+        <div id="top-nav">
+            <button onclick="window.location.href='/dati-bollettino'">Ciao</button>
+        </div>
+    </div>
 
+    <div id="main">
+        <h1>TITOLO</h1>
+    </div>
+
+    <div id="footer"></div>
+    <!-- end of the body -->
+    <script src="Z:\Bollettino-App\bollettino-app\esercizio_bollettini\src\main\resources\js\main.js"></script>
 </body>
 </html>
+
