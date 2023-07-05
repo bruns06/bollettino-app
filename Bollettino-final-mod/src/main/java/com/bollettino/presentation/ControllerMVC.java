@@ -1,14 +1,18 @@
 package com.bollettino.presentation;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bollettino.entities.Bollettino;
+import com.bollettino.repo.BollettinoDAO;
 import com.bollettino.service.ContoAbilitatoService;
 
 import ch.qos.logback.core.model.Model;
@@ -21,6 +25,8 @@ public class ControllerMVC {
 	@Autowired
 	ContoAbilitatoService contoAbilitatoService;
 	
+	@Autowired
+	BollettinoDAO daoB;
 	 
 	@GetMapping({"/", "home", "index"})
 	public String home() {
@@ -32,16 +38,32 @@ public class ControllerMVC {
 		return "dati-bollettino";
 	}
 	
+	@PostMapping("/pagamento-bollettino")
+	public String pagamentoBollettino(@RequestParam("codiceBollettino") String codiceBollettino) {
+		
+		Bollettino formBollettino = new Bollettino();
+		formBollettino.setCodiceBollettino(codiceBollettino);
+		daoB.save(formBollettino);
+		
+		int bollettinoId = daoB.findLastId();
+		Bollettino bollettino = daoB.findById(bollettinoId).orElse(null);
+		System.out.println(bollettino);
+		System.out.println(bollettinoId);
+		
+		return "pagamento-bollettino";
+	}
+	
+	
 	/*@PostMapping("/pagamento-bollettino")
 	public String pagamentoBollettino() {
 		
 		return "pagamento-bollettino";
 	}*/
 	
-	@PostMapping("/pagamento-bollettino")
+	/*@PostMapping("/pagamento-bollettino")
 	public String pagamentoBollettino(@ModelAttribute Bollettino formBolletino) {
 		
-		/*// Access the form data
+		// Access the form data
 		String codiceBollettino = formBolletino.getCodiceBollettino();
 		double importo = formBolletino.getImporto();
 		String causale = formBolletino.getCausale();
@@ -73,11 +95,11 @@ public class ControllerMVC {
             // Number does not exist, display an error message
             model.addAttribute("error", "Number does not exist in the database");
             return "error";
-        }*/
+        }
 		
 		
 		return "pagamento-bollettino";
-	}
+	}*/
 	
 	/*@PostMapping("/conferma-pagamento")
 	public String confermaPagamento() {
@@ -89,5 +111,8 @@ public class ControllerMVC {
 		 //bs.pagaBollettino(b);
 		 //return "redirect:/review";
 	 //}
+	
+	
+	
 	
 }
